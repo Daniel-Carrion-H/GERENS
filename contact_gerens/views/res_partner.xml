@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_personal_information_gerens" model="ir.ui.view">
+        <field name="name">Partner gerens: personal info</field>
+        <field name="model">res.partner</field>
+        <field
+            name="inherit_id"
+            ref="partner_contact_personal_information_page.personal_information"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='personal_information_page']//group[@name='personal_information_group']"
+            >
+                <sheet>
+                    <group string="Información">
+                        
+                            <group>
+                                <field name="universidad_id"/>
+                                <field name='nationality_id' string=" Nacionalidad"/>
+                                <field name='gender' string ="Genero" />
+                                <field name='birthdate_date' string = "Fecha Nac."/>
+                                <field
+                                    name="age"
+                                    attrs="{'invisible': [('birthdate_date', '=', False)]}"
+                                    string= "Edad"
+                                />
+                                <field name="email_gerens"></field>
+                            </group>
+
+                            <group>
+                                <field name="empresa_id" string ="Empresa"></field>
+                                <field name="pais_empresa" string= "Pais/Empresa"></field>
+                                <field name="convenio" string= "Convenio Gerens"></field>
+                                <field name="cargo_id" string= "Cargo en la Empresa"></field>
+                                <field name="origen_registro" string="Origen del Registro"></field>
+                            </group>
+                            
+                    </group>
+                    <div class="oe_horizontal_separator"/>
+                    <group string = "Historial de Cursos Llevados">
+                        <field name= "slide_channel_ids" string = ""/>
+                    </group>    
+                </sheet>
+            </xpath>
+        </field>
+    </record>
+</odoo>
